@@ -9,4 +9,4 @@
 
 import router from '@adonisjs/core/services/router'
 router.on('/').renderInertia('home')
-router.on('/app').renderInertia('Dashboard')
+router.on('/app').renderInertia('app')
