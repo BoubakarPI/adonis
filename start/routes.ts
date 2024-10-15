@@ -7,6 +7,15 @@
 |
 */
 
+
 import router from '@adonisjs/core/services/router'
-router.on('/').renderInertia('home')
-router.on('/app').renderInertia('app')
+const BlogController = () => import('#controllers/blog_controller')
+
+
+//router.on('/').renderInertia('home')
+//router.on('/app').renderInertia('app')
+
+
+router.get('/', [BlogController, 'index'])
+router.get('app', [BlogController, 'app'])
+router.get('a', [BlogController, 'blogs'])
