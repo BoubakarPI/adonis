@@ -12,4 +12,11 @@ export default class BlogController {
         const posts = await Post.all()
         return inertia.render('blogs', { posts })
     }
+
+    async show({ params, inertia } : HttpContext) {
+        const post = await Post.findOrFail(params.id)
+        console.log(post)
+        return inertia.render('blogs/show', { post })
+
+    }
 }
