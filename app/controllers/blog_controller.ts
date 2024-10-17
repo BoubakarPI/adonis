@@ -19,4 +19,13 @@ export default class BlogController {
         return inertia.render('blogs/show', { post })
 
     }
+    async upload({ params, request, inertia } : HttpContext) {
+        const post = await Post.findOrFail(params.id)
+        post
+        .merge(request.all())
+        .save()
+        const posts = await Post.all()
+         return inertia.render('blogs', { posts })
+
+    }
 }
